@@ -1,42 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//Add the Unity Events features for this script
 using UnityEngine.Events;
 
 public class ButtonSc : MonoBehaviour
 {
+    //declare a UnityEvent with name OnTriggered (remember to use On in the naming of your events)
     public UnityEvent OnTriggered;
-
-    //public GameObject door, boss, bossLight;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
+        //call the event when the parameters are met, in this case something enters the trigger
         OnTriggered?.Invoke();
+        //note the ? for null reference check
 
-        /*
-        //open the door
-        door.SetActive(false);
-
-        //set a boss active
-        BossScript b = boss.GetComponent<BossScript>();
-        b.ActivateBoss();
-
-
-        //dramatic lights
-        BossLight bl = bossLight.GetComponent<BossLight>();
-        bl.ActivateLight();
-        */
     }
 }

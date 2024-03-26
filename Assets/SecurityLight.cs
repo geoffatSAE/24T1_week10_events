@@ -4,34 +4,25 @@ using UnityEngine;
 
 public class SecurityLight : MonoBehaviour
 {
-
     Light l;
-
-
     private void OnEnable()
     {
+        //Subjectibe to the event
         SecuritySystem.OnSecurity += SecurityLightOn;
     }
-
     private void OnDisable()
     {
+        //and unsubscribe when no longer around
         SecuritySystem.OnSecurity -= SecurityLightOn;
     }
-
     // Start is called before the first frame update
     void Start()
     {
         l = GetComponent<Light>();
 
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    void SecurityLightOn()
+    
+    void SecurityLightOn() //Define the function to call on event call
     {
 
         l.intensity = 10;
